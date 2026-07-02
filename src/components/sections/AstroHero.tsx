@@ -3,6 +3,16 @@
 import { Play, ArrowRight, ShieldCheck, Lock, User } from "lucide-react";
 import Button from "../ui/Button";
 export default function AstroHero() {
+  const handleScroll = () => {
+    const section = document.getElementById("booking-section");
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
   return (
     <section className="relative overflow-hidden bg-[#f8f5f2] py-10">
       {/* Background Glow */}
@@ -64,7 +74,7 @@ export default function AstroHero() {
 
         {/* CTA Button */}
         <div className="mt-8 flex justify-center">
-          <Button className=" gap-3 group px-8 py-4 ">
+          <Button className=" gap-3 group px-8 py-4 " onClick={handleScroll}>
           Book Your Session Now
            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </Button >

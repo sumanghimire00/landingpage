@@ -13,7 +13,9 @@ const includes = [
 
 export default function BookingSection() {
   return (
-    <section className="bg-[#FAF7F2] py-10">
+    <section 
+     id="booking-section"
+    className="bg-[#FAF7F2] py-10">
       <div className="container mx-auto px-5">
         <div className="mb-12 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#9B7FFF]">

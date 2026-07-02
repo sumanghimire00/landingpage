@@ -1,4 +1,17 @@
+"use client";
+
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+  const handleScroll = () => {
+    const section = document.getElementById("booking-section");
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
 export default function BookingCard() {
   return (
@@ -41,7 +54,7 @@ export default function BookingCard() {
         </div>
       </div>
 
-      <button className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-[#D59A09] py-4 font-semibold text-black transition hover:opacity-90">
+      <button onClick={handleScroll} className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-[#D59A09] py-4 font-semibold text-black transition hover:opacity-90">
         Book my session Now
         <ArrowRight size={18} />
       </button>

@@ -1,6 +1,18 @@
+"use client";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import Button from "../ui/Button";
 import Image from "next/image";
+
+  const handleScroll = () => {
+    const section = document.getElementById("booking-section");
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
 export default function GuidanceSection() {
   return (
@@ -41,7 +53,7 @@ export default function GuidanceSection() {
 
             {/* CTA */}
             <div className="mt-10">
-              <Button className="group">
+              <Button className="group" onClick={handleScroll}>
                 Book Your Session Now
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>

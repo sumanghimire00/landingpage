@@ -1,4 +1,4 @@
-import { BadgeCheck } from 'lucide-react';
+import { BadgeCheck } from "lucide-react";
 import Image from "next/image";
 
 interface AstrologerCardProps {
@@ -26,8 +26,8 @@ export default function AstrologerCard({
         />
       </div>
 
-      <div className="mx-auto mt-2 inline-flex gap-1 items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-medium">
-         <BadgeCheck className="h-3.5 w-3.5 text-amber-600"/>
+      <div className="mx-auto mt-2 inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-medium">
+        <BadgeCheck className="h-3.5 w-3.5 text-amber-600" />
         Verified Guru
       </div>
 

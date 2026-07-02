@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight } from "lucide-react";
 import AstrologerCard from "../ui/AstrologerCard";
 import Button from "../ui/Button";
@@ -5,7 +9,7 @@ import Button from "../ui/Button";
 const astrologers = [
   {
     image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60",
     name: "Govinda Guru",
     title: "Vedic Astrology & Vastu Expert",
     description:
@@ -13,7 +17,7 @@ const astrologers = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1695927621677-ec96e048dce2?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1695927621677-ec96e048dce2?q=80&w=435&auto=format&fit=crop",
     name: "Dr. Meera Desai",
     title: "PhD in Jyotish Shastra",
     description:
@@ -21,7 +25,7 @@ const astrologers = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1633625763717-045645e9e739?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1633625763717-045645e9e739?q=80&w=387&auto=format&fit=crop",
     name: "Guru Prakash",
     title: "KP System & Nadi Astrologer",
     description:
@@ -30,6 +34,36 @@ const astrologers = [
 ];
 
 export default function AstrologersSection() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "center",
+    loop: false,
+  });
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    emblaApi.on("select", onSelect);
+    onSelect();
+
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
+
+  
+// Page scroller for Button
+  const handleScroll = () => {
+    document
+      .getElementById("booking-section")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="bg-[#F3EDDE] py-10">
       <div className="mx-auto max-w-7xl px-6">
@@ -43,34 +77,59 @@ export default function AstrologersSection() {
             Guided by Nepal&apos;s most trusted Vedic astrologers
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-slate-500 font-light">
+          <p className="mx-auto mt-5 max-w-2xl font-light text-slate-500">
             Every Astroparasar guru is hand-picked, verified, and trained in
             classical Vedic methods. We&apos;ll personally match you with the
             right astrologer based on your birth chart and questions.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
+        {/* Desktop */}
+        <div className="mt-14 hidden gap-8 md:grid md:grid-cols-3">
           {astrologers.map((guru) => (
-            <AstrologerCard
-              key={guru.name}
-              image={guru.image}
-              name={guru.name}
-              title={guru.title}
-              description={guru.description}
-            />
+            <AstrologerCard key={guru.name} {...guru} />
           ))}
         </div>
 
+        {/* Mobile Carousel */}
+        <div className="mt-10 md:hidden">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {astrologers.map((guru) => (
+                <div
+                  key={guru.name}
+                  className="min-w-full px-4"
+                >
+                  <AstrologerCard {...guru} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pagination */}
+          <div className="mt-5 flex justify-center gap-2">
+            {astrologers.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => emblaApi?.scrollTo(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  selectedIndex === index
+                    ? "w-6 bg-amber-500"
+                    : "w-2 bg-gray-300"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
         {/* Footer */}
-        <p className="mt-12 text-center text-sm italic text-slate-800 font-light">
+        <p className="mt-12 text-center text-sm font-light italic text-slate-800">
           You don&apos;t need to choose — we&apos;ll pair you with the
           astrologer best suited to your chart.
         </p>
 
         <div className="mt-8 flex justify-center">
-          <Button className=" gap-3 group  ">
+          <Button className="group gap-3" onClick={handleScroll}>
             Book Your Session Now
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Button>

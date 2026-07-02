@@ -1,5 +1,7 @@
 import BookingCard from "../ui/BookingCTACard";
 
+
+
 export default function BookingSessionSection() {
   return (
     <section className="bg-[#FAF7F2] py-10">
