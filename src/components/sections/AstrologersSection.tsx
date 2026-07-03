@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight } from "lucide-react";
 import AstrologerCard from "../ui/AstrologerCard";
 import Button from "../ui/Button";
+import Autoplay from "embla-carousel-autoplay";
 
 const astrologers = [
   {
@@ -34,10 +35,22 @@ const astrologers = [
 ];
 
 export default function AstrologersSection() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
+
+
+  const autoplay = useRef(
+  Autoplay({
+    delay: 2000,
+    stopOnInteraction: false,
+  })
+);
+
+ const [emblaRef, emblaApi] = useEmblaCarousel(
+  {
     align: "center",
-    loop: false,
-  });
+    loop: true,
+  },
+  [autoplay.current]
+);
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
