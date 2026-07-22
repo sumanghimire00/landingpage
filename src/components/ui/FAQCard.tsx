@@ -5,13 +5,9 @@ import { useState } from "react";
 
 interface FAQCardProps {
   question: string;
-  answer: string;
+  answer: string | string[];
 }
-
-export default function FAQCard({
-  question,
-  answer,
-}: FAQCardProps) {
+export default function FAQCard({ question, answer }: FAQCardProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -20,22 +16,24 @@ export default function FAQCard({
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between px-4 py-4 text-left"
       >
-        <span className="text-sm font-medium text-[#2D1A45]">
-          {question}
-        </span>
+        <span className="text-sm font-medium text-[#2D1A45]">{question}</span>
 
         <ChevronDown
-          className={`h-4 w-4 transition-transform ${
-            open ? "rotate-180" : ""
-          }`}
+          className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
         />
       </button>
 
       {open && (
         <div className="border-t border-[#E7E1F7] px-4 py-4">
-          <p className="text-sm leading-relaxed text-[#6F687A]">
-            {answer}
-          </p>
+          {Array.isArray(answer) ? (
+            <ol className="list-decimal space-y-2 pl-5 text-sm leading-relaxed text-[#6F687A]">
+              {answer.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ol>
+          ) : (
+            <p className="text-sm leading-relaxed text-[#6F687A]">{answer}</p>
+          )}
         </div>
       )}
     </div>

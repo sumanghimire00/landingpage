@@ -91,9 +91,7 @@ export default function AstrologersSection() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl font-light text-slate-500">
-            Every Astroparasar guru is hand-picked, verified, and trained in
-            classical Vedic methods. We&apos;ll personally match you with the
-            right astrologer based on your birth chart and questions.
+            Every AstroParasar Guru has been personally trained through the traditional Guru–Shishya Parampara and follows classical Vedic astrology methods. We will personally match you with the astrologer who is best suited to help you with your questions and life concerns.
           </p>
         </div>
 

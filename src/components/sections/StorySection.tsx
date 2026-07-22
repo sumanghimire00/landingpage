@@ -42,7 +42,7 @@ export default function TransformationStorySection() {
           </p>
 
           <p className="mx-auto mt-4 max-w-5xl text-sm leading-6 text-white/60">
-            This is not just a change in situation, it's a visible shift in energy. When planetary influences and karmic patterns begin to align, even the most strained relationships start transforming. The misunderstandings soften, emotional distance reduces, and clarity slowly replaces confusion. What you are seeing here is a real-life reflection of that shift, before and after the inner and cosmic balance begins to restore harmony in a relationship path.
+           What you're seeing here is the difference between feeling disconnected and feeling understood. With the right guidance, relationships can become healthier, happier, and more fulfilling.
           </p>
         </div>
       </div>
