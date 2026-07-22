@@ -27,9 +27,8 @@ export default function AstroHero() {
             <span className="block">success, relationships & peace.</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg font-light leading-relaxed">
-            A deep astrological analysis to uncover karmic patterns, understand
-            your current life phase, and find the clarity you've been seeking.
+          <p className="mx-auto mt-6 max-w-2xl text-lg font-light leading-relaxed ">
+            Get a deeper understanding of why certain things keep happening in your life, what phase you're currently going through, and gain the clarity to make better decisions moving forward.
           </p>
         </div>
 

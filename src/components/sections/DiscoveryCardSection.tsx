@@ -4,32 +4,27 @@ const discoveries = [
   {
     number: "01",
     title: "Hidden emotional patterns",
-    description:
-      "Behavioral tendencies affecting your daily life that may have gone unnoticed for years.",
+    description:"Understand why you react or feel a certain way in different situations and relationships.",
   },
   {
     number: "02",
     title: "Relationship dynamics",
-    description:
-      "Recurring themes and interpersonal patterns influencing your closest connections.",
+    description:"Gain clarity and discover ways to build stronger, healthier connections about your relationships and learn what may be causing misunderstandings or emotional distance."
   },
   {
     number: "03",
     title: "Timing & life direction",
-    description:
-      "Moments of opportunity, growth, and transition that help provide greater clarity.",
+    description:"Understand what phase of life you're currently in and when to take important steps with greater clarity and confidence."
   },
   {
     number: "04",
     title: "Personal strengths",
-    description:
-      "Innate qualities and talents that can become powerful tools for personal growth.",
+    description:"Discover your natural strengths and learn how to use them to overcome challenges with confidence."
   },
   {
     number: "05",
     title: "Greater self-awareness",
-    description:
-      "A deeper understanding of motivations, reactions, and recurring life patterns.",
+    description:"Gain a deeper understanding of yourself, your habits, and what truly matters to you. See yourself from a fresh perspective, understand your motivations, and make decisions that match with your goals."
   },
   {
     number: "06",

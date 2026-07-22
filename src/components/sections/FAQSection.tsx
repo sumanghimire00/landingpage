@@ -4,37 +4,53 @@ const faqs = [
   {
     question: "Will my problem get solved?",
     answer:
-      "The consultation is designed to provide clarity, guidance, and actionable insights. While no one can guarantee outcomes, many clients leave with a clearer understanding of their situation and practical next steps.",
+      "We can't promise that every problem will disappear. What we do promise is an honest consultation that helps you understand your situation, the possible reasons behind it, and practical guidance on what you can do next. Many clients leave with more clarity, confidence, and a clear direction.",
   },
   {
     question: "Can I trust this consultation?",
     answer:
-      "Yes. Every consultation is conducted professionally and confidentially, with a focus on providing honest guidance rather than unrealistic promises.",
+      "Yes. Every consultation is conducted personally, based on your birth details, and tailored to your situation. We focus on giving genuine guidance—not false promises, fear, or unrealistic guarantees.",
   },
   {
     question: "How does the consultation process work?",
-    answer:
-      "After booking, you'll provide your birth details and attend a one-on-one consultation where your questions and concerns are discussed in depth.",
+    answer: [
+      "Book your consultation online.",
+      "Share your birth details.",
+      "Join the session at the scheduled time.",
+      "Discuss your questions openly.",
+      "Receive clear guidance and practical suggestions based on your situation.",
+    ],
   },
   {
     question: "Is my money worth it?",
     answer:
-      "Clients often find value in the clarity, confidence, and personalized guidance they receive during the session.",
+      "If you're looking for honest guidance instead of quick promises, many people find the consultation worthwhile. Our goal is to help you make better decisions with greater clarity, not to sell unrealistic expectations.",
   },
   {
     question: "Is my personal data safe?",
     answer:
-      "Absolutely. Your information is kept private and used solely for the purpose of your consultation.",
+      "Absolutely. Your birth details, personal information, and everything discussed during the consultation remain completely private and confidential. We never share your information with anyone.",
   },
   {
     question: "How long is the session?",
     answer:
-      "Most consultations last between 60–90 minutes depending on the topics discussed.",
+      "Most consultations last 40 to 60 minutes, depending on your questions and the package you choose. We make sure you have enough time to discuss your concerns without feeling rushed.",
   },
   {
     question: "What kind of problem can I ask about?",
-    answer:
-      "You can ask about relationships, marriage, career, finances, personal growth, family matters, timing of important decisions, and more.",
+    answer: [
+      "Career and job",
+      "Business",
+      "Marriage and relationships",
+      "Love life",
+      "Family matters",
+      "Education",
+      "Finance",
+      "Health concerns",
+      "Foreign travel or settlement",
+      "Personal growth",
+      "Any other life challenge you'd like guidance on",
+    ],
   },
 ];
 
