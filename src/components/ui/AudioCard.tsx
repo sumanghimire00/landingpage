@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Play, Pause } from "lucide-react";
 
+let activeAudio: HTMLAudioElement | null = null;
+
 interface AudioCardProps {
   name: string;
   title: string;
@@ -34,15 +36,42 @@ export default function AudioCard({
       setCurrentTime(audio.currentTime);
     };
 
-    // Reset when audio ends......>>>>>>>>>>>>>>>>>>>>
+    audio.onplay = () => {
+      if (activeAudio && activeAudio !== audio) {
+        activeAudio.pause();
+      }
+
+      activeAudio = audio;
+      setIsPlaying(true);
+    };
+
+    audio.onpause = () => {
+      setIsPlaying(false);
+
+      if (activeAudio === audio) {
+        activeAudio = null;
+      }
+    };
+
     audio.onended = () => {
       setIsPlaying(false);
       setCurrentTime(0);
+
+      if (activeAudio === audio) {
+        activeAudio = null;
+      }
+
     };
 
     return () => {
       audio.pause();
       audio.currentTime = 0;
+
+      if (activeAudio === audio) {
+        activeAudio = null;
+      }
+
+      audioRef.current = null;
     };
   }, [url]);
 
@@ -51,10 +80,10 @@ export default function AudioCard({
 
     if (isPlaying) {
       audioRef.current.pause();
-      setIsPlaying(false);
     } else {
-      audioRef.current.play();
-      setIsPlaying(true);
+      void audioRef.current.play().catch(() => {
+        setIsPlaying(false);
+      });
     }
   };
 

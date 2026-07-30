@@ -49,9 +49,9 @@ export default function BookingForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="space-y-6"
+    <form  id="booking-section"
+       onSubmit={handleSubmit(onSubmit)}
+      className="space-y-6 scroll-mt-24"
     >
       <h3 className="font-serif text-3xl text-[#5A4C73]">
         Fill in the Details
