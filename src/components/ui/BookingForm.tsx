@@ -3,6 +3,7 @@
 import { ArrowRight, Calendar, Clock, Mail, Phone, User } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { bookAppointment } from "@/src/lib/actions/Booking";
 
 import Button from "./Button";
 import Input from "./Input";
@@ -33,20 +34,25 @@ export default function BookingForm() {
     },
   });
 
-  async function onSubmit(data: BookingFormData) {
-    try {
-      console.log(data);
+async function onSubmit(data: BookingFormData) {
+  try {
+    const result = await bookAppointment(data);
 
-    
+    console.log(result);
 
-      alert("Appointment Booked!");
+    alert("Appointment Booked!");
 
-      reset();
-    } catch (error) {
-      console.error(error);
-      alert("Something went wrong.");
-    }
+    reset();
+  } catch (error) {
+    console.error(error);
+
+    alert(
+      error instanceof Error
+        ? error.message
+        : "Something went wrong."
+    );
   }
+}
 
   return (
     <form  id="booking-section"
